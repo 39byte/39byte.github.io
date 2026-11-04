@@ -4,10 +4,159 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>39byte</title>
+  <meta name="description" content="39byte의 포트폴리오">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #FAFAFA;
+      --fg: #09090B;
+      --muted: #475569;
+      --card: #FFFFFF;
+      --border: #18181B;
+      --accent: #2563EB;
+      --on-accent: #FFFFFF;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #09090B;
+        --fg: #FAFAFA;
+        --muted: #A1A1AA;
+        --card: #18181B;
+        --border: #FAFAFA;
+        --accent: #60A5FA;
+        --on-accent: #09090B;
+      }
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--fg);
+      font: 400 1rem/1.6 "Archivo", "Pretendard", "Noto Sans KR", "Malgun Gothic", system-ui, sans-serif;
+    }
+    h1, h2, h3, .mono { font-family: "Space Grotesk", "Archivo", "Malgun Gothic", sans-serif; }
+    a { color: inherit; }
+    :focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+    .skip { position: absolute; left: -999px; top: 0; padding: .5rem 1rem; background: var(--accent); color: var(--on-accent); z-index: 10; }
+    .skip:focus { left: 0; }
+
+    .wrap { max-width: 64rem; margin: 0 auto; padding: 0 1rem; }
+    @media (min-width: 768px) { .wrap { padding: 0 2rem; } }
+
+    header.top { border-bottom: 2px solid var(--border); }
+    header.top .wrap { display: flex; justify-content: space-between; align-items: center; min-height: 3.5rem; }
+    .logo { font-family: "Space Grotesk", sans-serif; font-weight: 700; font-size: 1.125rem; text-decoration: none; }
+    nav { display: flex; gap: .25rem; }
+    nav a { text-decoration: none; padding: .75rem .75rem; font-weight: 500; }
+    nav a:hover { color: var(--accent); }
+
+    .hero { padding: 4rem 0 3rem; border-bottom: 2px solid var(--border); }
+    .hero .label { display: inline-block; font-size: .875rem; font-weight: 500; padding: .25rem .625rem; border: 2px solid var(--border); margin-bottom: 1.5rem; }
+    .hero h1 { font-size: clamp(3rem, 14vw, 7.5rem); line-height: .95; letter-spacing: -.03em; margin: 0 0 1.5rem; font-weight: 700; }
+    .hero h1 span { color: var(--accent); }
+    .hero p { max-width: 36rem; font-size: 1.125rem; color: var(--muted); margin: 0 0 2rem; }
+
+    .btn { display: inline-block; padding: .75rem 1.25rem; min-height: 44px; font-weight: 700; text-decoration: none; border: 2px solid var(--border); background: var(--accent); color: var(--on-accent); box-shadow: 4px 4px 0 var(--border); transition: transform .15s ease, box-shadow .15s ease; cursor: pointer; }
+    .btn:hover { transform: translate(2px, 2px); box-shadow: 2px 2px 0 var(--border); }
+    .btn.ghost { background: transparent; color: var(--fg); margin-left: .5rem; }
+
+    section { padding: 3rem 0; border-bottom: 2px solid var(--border); }
+    section h2 { font-size: 1.75rem; margin: 0 0 1.5rem; letter-spacing: -.01em; }
+    section h2::before { content: "/ "; color: var(--accent); }
+
+    .grid { display: grid; gap: 1rem; grid-template-columns: 1fr; }
+    @media (min-width: 768px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+    .card { background: var(--card); border: 2px solid var(--border); padding: 1.25rem; display: flex; flex-direction: column; gap: .5rem; text-decoration: none; transition: transform .15s ease, box-shadow .15s ease; }
+    a.card:hover { transform: translate(-2px, -2px); box-shadow: 4px 4px 0 var(--border); }
+    .card h3 { margin: 0; font-size: 1.125rem; }
+    .card p { margin: 0; color: var(--muted); font-size: .9375rem; }
+    .card .tags { margin-top: auto; padding-top: .5rem; font-size: .8125rem; font-weight: 500; color: var(--accent); }
+
+    .skills { display: flex; flex-wrap: wrap; gap: .5rem; padding: 0; margin: 1.5rem 0 0; list-style: none; }
+    .skills li { border: 2px solid var(--border); padding: .25rem .75rem; font-size: .875rem; font-weight: 500; }
+
+    footer { padding: 2rem 0; color: var(--muted); font-size: .875rem; }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .btn, .card { transition: none; }
+    }
+  </style>
 </head>
 <body>
-  <h1>39byte</h1>
-  <p>소개글</p>
-  <a href="https://github.com/39byte">GitHub</a>
+  <a class="skip" href="#main">본문으로 건너뛰기</a>
+
+  <header class="top">
+    <div class="wrap">
+      <a class="logo" href="#">39byte</a>
+      <nav aria-label="주요 메뉴">
+        <a href="#about">소개</a>
+        <a href="#projects">프로젝트</a>
+        <a href="#contact">연락</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="hero">
+      <div class="wrap">
+        <span class="label mono">PORTFOLIO</span>
+        <h1>39<span>byte</span></h1>
+        <p>안녕하세요, 39byte입니다. 여기에 한 줄 소개를 적어 주세요.</p>
+        <a class="btn" href="#projects">프로젝트 보기</a>
+        <a class="btn ghost" href="https://github.com/39byte">GitHub</a>
+      </div>
+    </div>
+
+    <section id="about">
+      <div class="wrap">
+        <h2>소개</h2>
+        <p style="max-width:40rem;margin:0">자기소개를 2~3문장으로 적어 주세요. 관심 분야, 하고 있는 일, 만들고 싶은 것을 쓰면 좋습니다.</p>
+        <ul class="skills" aria-label="기술 스택">
+          <li>Python</li>
+          <li>C#</li>
+          <li>TypeScript</li>
+          <li>SQL</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="wrap">
+        <h2>프로젝트</h2>
+        <div class="grid">
+          <a class="card" href="https://github.com/39byte">
+            <h3>프로젝트 이름 1</h3>
+            <p>프로젝트 설명을 한두 줄로 적어 주세요.</p>
+            <span class="tags">Python · ML</span>
+          </a>
+          <a class="card" href="https://github.com/39byte">
+            <h3>프로젝트 이름 2</h3>
+            <p>프로젝트 설명을 한두 줄로 적어 주세요.</p>
+            <span class="tags">C# · WinUI</span>
+          </a>
+          <a class="card" href="https://github.com/39byte">
+            <h3>프로젝트 이름 3</h3>
+            <p>프로젝트 설명을 한두 줄로 적어 주세요.</p>
+            <span class="tags">TypeScript · Web</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="wrap">
+        <h2>연락</h2>
+        <a class="btn" href="https://github.com/39byte">github.com/39byte</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">© 2026 39byte</div>
+  </footer>
 </body>
 </html>
